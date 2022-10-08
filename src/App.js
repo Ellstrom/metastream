@@ -22,7 +22,7 @@ class App extends Component {
           <header className="App-header">
             {this.state.isLoading &&
                 <div>
-                  Sidan laddar, lugna ne mä!!
+                  Sidan laddar, lugna ne mä för fan!!
                 </div>
             }
             <div className="App-intro">
