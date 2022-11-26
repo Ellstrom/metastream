@@ -1,10 +1,14 @@
 import './App.css';
 import {Component} from "react";
 
+import { FilterContext } from "./components/FilterContext";
+import HeroPage from "./components/HeroPage";
+
 class App extends Component {
   state = {
     isLoading: false,
-    matchups: []
+    matchups: [],
+    mapName: "abc"
   };
 
   async componentDidMount() {
@@ -26,12 +30,7 @@ class App extends Component {
                 </div>
             }
             <div className="App-intro">
-              <h2>matchups</h2>
-              {matchups.map(matchup =>
-                  <div key={matchup.heroName}>
-                    {matchup.heroName} - {matchup.winrateAdvantage} - ({matchup.matchCount})
-                  </div>
-              )}
+                <HeroPage matchups={matchups}/>
             </div>
           </header>
         </div>

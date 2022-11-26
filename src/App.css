@@ -24,6 +24,21 @@
   color: white;
 }
 
+.grid-container-hero-page {
+  display: grid;
+  grid-template-columns: 300px auto;
+  grid-gap: 10px;
+  padding: 10px;
+}
+
+
+.grid-container-selection-page {
+  display: grid;
+  grid-template-columns: 300px auto;
+  grid-gap: 10px;
+  padding: 10px;
+}
+
 .App-link {
   color: #61dafb;
 }
