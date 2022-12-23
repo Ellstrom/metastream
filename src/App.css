@@ -31,12 +31,25 @@
   padding: 10px;
 }
 
-
+/*
 .grid-container-selection-page {
   display: grid;
   grid-template-columns: 300px auto;
   grid-gap: 10px;
   padding: 10px;
+}
+ */
+
+.grid-container-selection-page {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);  /* 5 columns with equal width */
+  grid-template-rows: repeat(2, 1fr);    /* 2 rows with equal height */
+  grid-gap: 10px;
+  padding: 10px;
+}
+
+.hero-selection {
+  border: 2px solid blue;
 }
 
 .App-link {

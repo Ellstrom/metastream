@@ -1,9 +1,9 @@
 import React, {useContext, useState} from 'react'
-import { Button } from 'react-bootstrap'
-import { FilterContext } from "./FilterContext";
-import { Checkbox } from "semantic-ui-react";
-import { LocationConfig} from "../config/LocationConfig";
-import { FormControl } from "react-bootstrap";
+import {Button} from 'react-bootstrap'
+import {FilterContext} from "./FilterContext";
+import {Checkbox} from "semantic-ui-react";
+import {LocationConfig} from "../config/LocationConfig";
+import {FormControl} from "react-bootstrap";
 
 const HeroSidebar = (props) => {
 
@@ -51,6 +51,10 @@ const HeroSidebar = (props) => {
     const [isValueFourChecked, setValueFourChecked] = useState(false);
     const [isValueFiveChecked, setValueFiveChecked] = useState(false);
 
+    const addHeroVs = (heroVsName) => {
+        console.log("Added hero: " + heroVsName);
+    };
+
     return (
         <div className="sideBar">
             <div className="searchBar">
@@ -67,286 +71,320 @@ const HeroSidebar = (props) => {
             </div>
             <table>
                 <tbody>
-                    <tr className="grid-container-filter-table">
-                        <td><h3>Smoke</h3></td>
-                        <td className="paddingLeft">
-                            <Checkbox
-                                toggle
-                                checked={isSmokeChecked}
-                                onChange={(formEvent, checkBoxProps) => {
-                                    setSmokeChecked(checkBoxProps.checked);
-                                    setSmokeVisible(checkBoxProps.checked);
-                                }}
-                            />
-                        </td>
-                    </tr>
-                    <tr className="grid-container-filter-table">
-                        <td><h3>Flash</h3></td>
-                        <td className="paddingLeft">
-                            <Checkbox
-                                toggle
-                                checked={isFlashChecked}
-                                onChange={(formEvent, checkBoxProps) => {
-                                    setFlashChecked(checkBoxProps.checked);
-                                    setFlashVisible(checkBoxProps.checked);
-                                }}
-                            />
-                        </td>
-                    </tr>
-                    <tr className="grid-container-filter-table">
-                        <td><h3>Molotov</h3></td>
-                        <td className="paddingLeft">
-                            <Checkbox
-                                toggle
-                                checked={isMolotovChecked}
-                                onChange={(formEvent, checkBoxProps) => {
-                                    setMolotovChecked(checkBoxProps.checked);
-                                    setMolotovVisible(checkBoxProps.checked);
-                                }}
-                            />
-                        </td>
-                    </tr>
-                    <tr className="grid-container-filter-table">
-                        <td><h3>Grenade</h3></td>
-                        <td className="paddingLeft">
-                            <Checkbox
-                                toggle
-                                checked={isGrenadeChecked}
-                                onChange={(formEvent, checkBoxProps) => {
-                                    setGrenadeChecked(checkBoxProps.checked);
-                                    setGrenadeVisible(checkBoxProps.checked);
-                                }}
-                            />
-                        </td>
-                    </tr>
-                    <tr className="grid-container-filter-table">
-                        <td><h3>Strat</h3></td>
-                        <td className="paddingLeft">
-                            <Checkbox
-                                toggle
-                                checked={isStratChecked}
-                                onChange={(formEvent, checkBoxProps) => {
-                                    setStratChecked(checkBoxProps.checked);
-                                    setStratVisible(checkBoxProps.checked);
-                                }}
-                            />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <br/><br/>
-                        </td>
-                    </tr>
-                    <tr className="grid-container-filter-table">
-                        <td><h3>CT</h3></td>
-                        <td className="paddingLeft">
-                            <Checkbox
-                                toggle
-                                checked={isCTChecked}
-                                onChange={(formEvent, checkBoxProps) => {
-                                    setCTChecked(checkBoxProps.checked);
-                                    setCTVisible(checkBoxProps.checked);
-                                }}
-                            />
-                        </td>
-                    </tr>
-                    <tr className="grid-container-filter-table">
-                        <td><h3>T</h3></td>
-                        <td className="paddingLeft">
-                            <Checkbox
-                                toggle
-                                checked={isTChecked}
-                                onChange={(formEvent, checkBoxProps) => {
-                                    setTChecked(checkBoxProps.checked);
-                                    setTVisible(checkBoxProps.checked);
-                                }}
-                            />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <br/><br/>
-                        </td>
-                    </tr>
-                    <tr className="grid-container-filter-table">
-                        <td></td>
-                        <td><h3>A</h3></td>
-                        <td className="paddingLeft">
-                            <Checkbox
-                                toggle
-                                checked={isAChecked}
-                                onChange={(formEvent, checkBoxProps) => {
-                                    setAChecked(checkBoxProps.checked);
-                                    setAVisible(checkBoxProps.checked);
-                                }}
-                            />
-                        </td>
-                    </tr>
-                    {true &&
-                        <tr className="grid-container-filter-table">
-                            <td></td>
-                            <td><h3>Mid</h3></td>
-                            <td className="paddingLeft">
-                                <Checkbox
-                                    toggle
-                                    checked={isMidChecked}
-                                    onChange={(formEvent, checkBoxProps) => {
-                                        setMidChecked(checkBoxProps.checked);
-                                        setMidVisible(checkBoxProps.checked);
-                                    }}
-                                />
-                            </td>
-                        </tr>
-                    }
-                    {true &&
-                        <tr className="grid-container-filter-table">
-                            <td></td>
-                            <td><h3>B</h3></td>
-                            <td className="paddingLeft">
-                                <Checkbox
-                                    toggle
-                                    checked={isBChecked}
-                                    onChange={(formEvent, checkBoxProps) => {
-                                        setBChecked(checkBoxProps.checked);
-                                        setBVisible(checkBoxProps.checked);
-                                    }}
-                                />
-                            </td>
-                        </tr>
-                    }
-                    {true &&
-                        <tr className="grid-container-filter-table">
-                            <td></td>
-                            <td><h3>Yard</h3></td>
-                            <td className="paddingLeft">
-                                <Checkbox
-                                    toggle
-                                    checked={isYardChecked}
-                                    onChange={(formEvent, checkBoxProps) => {
-                                        setYardChecked(checkBoxProps.checked);
-                                        setYardVisible(checkBoxProps.checked);
-                                    }}
-                                />
-                            </td>
-                        </tr>
-                    }
-                    {true &&
-                        <tr className="grid-container-filter-table">
-                            <td></td>
-                            <td><h3>Ramp</h3></td>
-                            <td className="paddingLeft">
-                                <Checkbox
-                                    toggle
-                                    checked={isRampChecked}
-                                    onChange={(formEvent, checkBoxProps) => {
-                                        setRampChecked(checkBoxProps.checked);
-                                        setRampVisible(checkBoxProps.checked);
-                                    }}
-                                />
-                            </td>
-                        </tr>
-                    }
-                    {true &&
-                        <tr className="grid-container-filter-table">
-                            <td></td>
-                            <td><h3>Vent</h3></td>
-                            <td className="paddingLeft">
-                                <Checkbox
-                                    toggle
-                                    checked={isVentChecked}
-                                    onChange={(formEvent, checkBoxProps) => {
-                                        setVentChecked(checkBoxProps.checked);
-                                        setVentVisible(checkBoxProps.checked);
-                                    }}
-                                />
-                            </td>
-                        </tr>
-                    }
-                    <tr>
-                        <td>
-                            <br/><br/>
-                        </td>
-                    </tr>
+                <tr className="grid-container-filter-table">
+                    <td><h3>Medusa</h3></td>
+                    <td className="paddingLeft">
+                        <Button onClick={() => addHeroVs('Medusa')}>
+                            Add hero
+                        </Button>
+
+                        <Checkbox
+                            toggle
+                            checked={isSmokeChecked}
+                            onChange={(formEvent, checkBoxProps) => {
+                                setSmokeChecked(checkBoxProps.checked);
+                                setSmokeVisible(checkBoxProps.checked);
+                            }}
+                        />
+                    </td>
+                </tr>
+                <tr className="grid-container-filter-table">
+                    <td><h3>Zeus</h3></td>
+                    <td className="paddingLeft">
+                        <Checkbox
+                            toggle
+                            checked={isFlashChecked}
+                            onChange={(formEvent, checkBoxProps) => {
+                                setFlashChecked(checkBoxProps.checked);
+                                setFlashVisible(checkBoxProps.checked);
+                            }}
+                        />
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <table>
+                <tbody>
+                <tr className="grid-container-filter-table">
+                    <td><h3>Smoke</h3></td>
+                    <td className="paddingLeft">
+                        <Checkbox
+                            toggle
+                            checked={isSmokeChecked}
+                            onChange={(formEvent, checkBoxProps) => {
+                                setSmokeChecked(checkBoxProps.checked);
+                                setSmokeVisible(checkBoxProps.checked);
+                            }}
+                        />
+                    </td>
+                </tr>
+                <tr className="grid-container-filter-table">
+                    <td><h3>Flash</h3></td>
+                    <td className="paddingLeft">
+                        <Checkbox
+                            toggle
+                            checked={isFlashChecked}
+                            onChange={(formEvent, checkBoxProps) => {
+                                setFlashChecked(checkBoxProps.checked);
+                                setFlashVisible(checkBoxProps.checked);
+                            }}
+                        />
+                    </td>
+                </tr>
+                <tr className="grid-container-filter-table">
+                    <td><h3>Molotov</h3></td>
+                    <td className="paddingLeft">
+                        <Checkbox
+                            toggle
+                            checked={isMolotovChecked}
+                            onChange={(formEvent, checkBoxProps) => {
+                                setMolotovChecked(checkBoxProps.checked);
+                                setMolotovVisible(checkBoxProps.checked);
+                            }}
+                        />
+                    </td>
+                </tr>
+                <tr className="grid-container-filter-table">
+                    <td><h3>Grenade</h3></td>
+                    <td className="paddingLeft">
+                        <Checkbox
+                            toggle
+                            checked={isGrenadeChecked}
+                            onChange={(formEvent, checkBoxProps) => {
+                                setGrenadeChecked(checkBoxProps.checked);
+                                setGrenadeVisible(checkBoxProps.checked);
+                            }}
+                        />
+                    </td>
+                </tr>
+                <tr className="grid-container-filter-table">
+                    <td><h3>Strat</h3></td>
+                    <td className="paddingLeft">
+                        <Checkbox
+                            toggle
+                            checked={isStratChecked}
+                            onChange={(formEvent, checkBoxProps) => {
+                                setStratChecked(checkBoxProps.checked);
+                                setStratVisible(checkBoxProps.checked);
+                            }}
+                        />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <br/><br/>
+                    </td>
+                </tr>
+                <tr className="grid-container-filter-table">
+                    <td><h3>CT</h3></td>
+                    <td className="paddingLeft">
+                        <Checkbox
+                            toggle
+                            checked={isCTChecked}
+                            onChange={(formEvent, checkBoxProps) => {
+                                setCTChecked(checkBoxProps.checked);
+                                setCTVisible(checkBoxProps.checked);
+                            }}
+                        />
+                    </td>
+                </tr>
+                <tr className="grid-container-filter-table">
+                    <td><h3>T</h3></td>
+                    <td className="paddingLeft">
+                        <Checkbox
+                            toggle
+                            checked={isTChecked}
+                            onChange={(formEvent, checkBoxProps) => {
+                                setTChecked(checkBoxProps.checked);
+                                setTVisible(checkBoxProps.checked);
+                            }}
+                        />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <br/><br/>
+                    </td>
+                </tr>
+                <tr className="grid-container-filter-table">
+                    <td></td>
+                    <td><h3>A</h3></td>
+                    <td className="paddingLeft">
+                        <Checkbox
+                            toggle
+                            checked={isAChecked}
+                            onChange={(formEvent, checkBoxProps) => {
+                                setAChecked(checkBoxProps.checked);
+                                setAVisible(checkBoxProps.checked);
+                            }}
+                        />
+                    </td>
+                </tr>
+                {true &&
                     <tr className="grid-container-filter-table">
                         <td></td>
-                        <td><h2>Value</h2></td>
-                        <td></td>
-                    </tr>
-                    <tr className="grid-container-filter-table">
-                        <td></td>
-                        <td className="grid-container-smoke-icons">
-                        </td>
+                        <td><h3>Mid</h3></td>
                         <td className="paddingLeft">
                             <Checkbox
                                 toggle
-                                checked={isValueFiveChecked}
+                                checked={isMidChecked}
                                 onChange={(formEvent, checkBoxProps) => {
-                                    setValueFiveChecked(checkBoxProps.checked);
-                                    setValueFiveVisible(checkBoxProps.checked);
+                                    setMidChecked(checkBoxProps.checked);
+                                    setMidVisible(checkBoxProps.checked);
                                 }}
                             />
                         </td>
                     </tr>
+                }
+                {true &&
                     <tr className="grid-container-filter-table">
                         <td></td>
-                        <td className="grid-container-smoke-icons">
-                        </td>
+                        <td><h3>B</h3></td>
                         <td className="paddingLeft">
                             <Checkbox
                                 toggle
-                                checked={isValueFourChecked}
+                                checked={isBChecked}
                                 onChange={(formEvent, checkBoxProps) => {
-                                    setValueFourChecked(checkBoxProps.checked);
-                                    setValueFourVisible(checkBoxProps.checked);
+                                    setBChecked(checkBoxProps.checked);
+                                    setBVisible(checkBoxProps.checked);
                                 }}
                             />
                         </td>
                     </tr>
+                }
+                {true &&
                     <tr className="grid-container-filter-table">
                         <td></td>
-                        <td className="grid-container-smoke-icons">
-                        </td>
+                        <td><h3>Yard</h3></td>
                         <td className="paddingLeft">
                             <Checkbox
                                 toggle
-                                checked={isValueThreeChecked}
+                                checked={isYardChecked}
                                 onChange={(formEvent, checkBoxProps) => {
-                                    setValueThreeChecked(checkBoxProps.checked);
-                                    setValueThreeVisible(checkBoxProps.checked);
+                                    setYardChecked(checkBoxProps.checked);
+                                    setYardVisible(checkBoxProps.checked);
                                 }}
                             />
                         </td>
                     </tr>
+                }
+                {true &&
                     <tr className="grid-container-filter-table">
                         <td></td>
-                        <td className="grid-container-smoke-icons">
-                        </td>
+                        <td><h3>Ramp</h3></td>
                         <td className="paddingLeft">
                             <Checkbox
                                 toggle
-                                checked={isValueTwoChecked}
+                                checked={isRampChecked}
                                 onChange={(formEvent, checkBoxProps) => {
-                                    setValueTwoChecked(checkBoxProps.checked);
-                                    setValueTwoVisible(checkBoxProps.checked);
+                                    setRampChecked(checkBoxProps.checked);
+                                    setRampVisible(checkBoxProps.checked);
                                 }}
                             />
                         </td>
                     </tr>
+                }
+                {true &&
                     <tr className="grid-container-filter-table">
                         <td></td>
-                        <td className="grid-container-smoke-icons">
-                        </td>
+                        <td><h3>Vent</h3></td>
                         <td className="paddingLeft">
                             <Checkbox
                                 toggle
-                                checked={isValueOneChecked}
+                                checked={isVentChecked}
                                 onChange={(formEvent, checkBoxProps) => {
-                                    setValueOneChecked(checkBoxProps.checked);
-                                    setValueOneVisible(checkBoxProps.checked);
+                                    setVentChecked(checkBoxProps.checked);
+                                    setVentVisible(checkBoxProps.checked);
                                 }}
                             />
                         </td>
                     </tr>
+                }
+                <tr>
+                    <td>
+                        <br/><br/>
+                    </td>
+                </tr>
+                <tr className="grid-container-filter-table">
+                    <td></td>
+                    <td><h2>Value</h2></td>
+                    <td></td>
+                </tr>
+                <tr className="grid-container-filter-table">
+                    <td></td>
+                    <td className="grid-container-smoke-icons">
+                    </td>
+                    <td className="paddingLeft">
+                        <Checkbox
+                            toggle
+                            checked={isValueFiveChecked}
+                            onChange={(formEvent, checkBoxProps) => {
+                                setValueFiveChecked(checkBoxProps.checked);
+                                setValueFiveVisible(checkBoxProps.checked);
+                            }}
+                        />
+                    </td>
+                </tr>
+                <tr className="grid-container-filter-table">
+                    <td></td>
+                    <td className="grid-container-smoke-icons">
+                    </td>
+                    <td className="paddingLeft">
+                        <Checkbox
+                            toggle
+                            checked={isValueFourChecked}
+                            onChange={(formEvent, checkBoxProps) => {
+                                setValueFourChecked(checkBoxProps.checked);
+                                setValueFourVisible(checkBoxProps.checked);
+                            }}
+                        />
+                    </td>
+                </tr>
+                <tr className="grid-container-filter-table">
+                    <td></td>
+                    <td className="grid-container-smoke-icons">
+                    </td>
+                    <td className="paddingLeft">
+                        <Checkbox
+                            toggle
+                            checked={isValueThreeChecked}
+                            onChange={(formEvent, checkBoxProps) => {
+                                setValueThreeChecked(checkBoxProps.checked);
+                                setValueThreeVisible(checkBoxProps.checked);
+                            }}
+                        />
+                    </td>
+                </tr>
+                <tr className="grid-container-filter-table">
+                    <td></td>
+                    <td className="grid-container-smoke-icons">
+                    </td>
+                    <td className="paddingLeft">
+                        <Checkbox
+                            toggle
+                            checked={isValueTwoChecked}
+                            onChange={(formEvent, checkBoxProps) => {
+                                setValueTwoChecked(checkBoxProps.checked);
+                                setValueTwoVisible(checkBoxProps.checked);
+                            }}
+                        />
+                    </td>
+                </tr>
+                <tr className="grid-container-filter-table">
+                    <td></td>
+                    <td className="grid-container-smoke-icons">
+                    </td>
+                    <td className="paddingLeft">
+                        <Checkbox
+                            toggle
+                            checked={isValueOneChecked}
+                            onChange={(formEvent, checkBoxProps) => {
+                                setValueOneChecked(checkBoxProps.checked);
+                                setValueOneVisible(checkBoxProps.checked);
+                            }}
+                        />
+                    </td>
+                </tr>
                 </tbody>
             </table>
             <div className="clearButton">

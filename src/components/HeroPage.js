@@ -6,6 +6,8 @@ import HeroSelection from "./HeroSelection";
 const HeroPage = ({matchups}) => {
 
     const [searchContent, setSearchContent] = useState('');
+    const [heroName1, removeHero1] = useState('');
+
     const [isSmokeVisible, setSmokeVisible] = useState(false);
     const [isFlashVisible, setFlashVisible] = useState(false);
     const [isMolotovVisible, setMolotovVisible] = useState(false);
@@ -28,6 +30,7 @@ const HeroPage = ({matchups}) => {
     const providerValue = useMemo(() => (
             {
                 searchContent,
+                heroName1,
                 isSmokeVisible,
                 isFlashVisible,
                 isMolotovVisible,
@@ -47,6 +50,7 @@ const HeroPage = ({matchups}) => {
                 isValueFourVisible,
                 isValueFiveVisible,
                 setSearchContent,
+                removeHero1,
                 setSmokeVisible,
                 setFlashVisible,
                 setMolotovVisible,
@@ -69,6 +73,7 @@ const HeroPage = ({matchups}) => {
         ),
         [
             searchContent,
+            heroName1,
             isSmokeVisible,
             isFlashVisible,
             isMolotovVisible,
@@ -88,6 +93,7 @@ const HeroPage = ({matchups}) => {
             isValueFourVisible,
             isValueFiveVisible,
             setSearchContent,
+            removeHero1,
             setSmokeVisible,
             setFlashVisible,
             setMolotovVisible,
@@ -113,7 +119,7 @@ const HeroPage = ({matchups}) => {
         <div>
             <FilterContext.Provider value={providerValue}>
                 <div className="grid-container-selection-page">
-                    <HeroSelection heroName="heroWith1"/>
+                    <HeroSelection heroName={heroName1}/>
                     <HeroSelection heroName="heroWith2"/>
                     <HeroSelection heroName="heroWith3"/>
                     <HeroSelection heroName="heroWith4"/>

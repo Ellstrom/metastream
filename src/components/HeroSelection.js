@@ -30,7 +30,7 @@ const HeroSelection = (props) => {
     } = useContext(FilterContext);
 
     return (
-        <Container>
+        <Container className="hero-selection">
             <Row>
                 <Col>
                     {props.heroName}
