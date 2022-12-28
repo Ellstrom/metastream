@@ -6,7 +6,6 @@ import HeroSelection from "./HeroSelection";
 const HeroPage = ({matchups}) => {
 
     const [searchContent, setSearchContent] = useState('');
-    const [heroName1, removeHero1] = useState('');
     const [heroesWith, setHeroesWith] = useState([]);
     const [heroesVs, setHeroesVs] = useState([]);
 
@@ -32,7 +31,6 @@ const HeroPage = ({matchups}) => {
     const providerValue = useMemo(() => (
             {
                 searchContent,
-                heroName1,
                 heroesVs,
                 setHeroesVs,
                 heroesWith,
@@ -56,7 +54,6 @@ const HeroPage = ({matchups}) => {
                 isValueFourVisible,
                 isValueFiveVisible,
                 setSearchContent,
-                removeHero1,
                 setSmokeVisible,
                 setFlashVisible,
                 setMolotovVisible,
@@ -79,7 +76,6 @@ const HeroPage = ({matchups}) => {
         ),
         [
             searchContent,
-            heroName1,
             heroesVs,
             setHeroesVs,
             heroesWith,
@@ -103,7 +99,6 @@ const HeroPage = ({matchups}) => {
             isValueFourVisible,
             isValueFiveVisible,
             setSearchContent,
-            removeHero1,
             setSmokeVisible,
             setFlashVisible,
             setMolotovVisible,
