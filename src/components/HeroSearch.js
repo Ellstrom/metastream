@@ -1,7 +1,6 @@
-import React, {useContext, useState} from 'react'
+import React, {useContext, useState, useEffect} from 'react'
 import {Button, Col, Container, Row} from 'react-bootstrap'
 import { FilterContext } from "./FilterContext";
-import { LocationConfig} from "../config/LocationConfig";
 
 const HeroSearch = (props) => {
 
@@ -12,28 +11,26 @@ const HeroSearch = (props) => {
         setHeroesVs
     } = useContext(FilterContext);
 
-    const addHeroWith = (heroWithName) => {
-        setHeroesWith([...heroesWith, heroWithName]);
-        console.log("Added hero: " + heroWithName);
+    const addHeroWith = (heroWith) => {
+        setHeroesWith([...heroesWith, heroWith]);
     };
 
-    const addHeroVs = (heroVsName) => {
-        setHeroesVs([...heroesVs, heroVsName]);
-        console.log("Added hero: " + heroVsName);
+    const addHeroVs = (heroVs) => {
+        setHeroesVs([...heroesVs, heroVs]);
     };
 
     return (
         <tr className="grid-container-filter-table">
-            <td><h3>{props.heroName}</h3></td>
+            <td><h3>{props.hero.name}</h3></td>
             <td className="paddingLeft">
                 <tr>
                     <td>
-                        <Button onClick={() => addHeroWith(props.heroName)}>
+                        <Button onClick={() => addHeroWith(props.hero)}>
                             Add hero With
                         </Button>
                     </td>
                     <td>
-                        <Button onClick={() => addHeroVs(props.heroName)}>
+                        <Button onClick={() => addHeroVs(props.hero)}>
                             Add hero Vs
                         </Button>
                     </td>

@@ -12,11 +12,13 @@ class App extends Component {
   };
 
   async componentDidMount() {
+    /*
     this.setState({isLoading: true});
     const response = await fetch('/matchups/vs-and-with/heroes?vsHeroes=MEDUSA&minimumAmountOfGamesForMatchup=0');
     const body = await response.json();
     this.setState({matchups: body});
     this.setState({isLoading: false});
+     */
   }
 
   render() {
@@ -30,7 +32,7 @@ class App extends Component {
                 </div>
             }
             <div className="App-intro">
-                <HeroPage matchups={matchups}/>
+                <HeroPage/>
             </div>
           </header>
         </div>

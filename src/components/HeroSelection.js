@@ -1,11 +1,9 @@
 import React, {useContext, useState} from 'react'
 import {Col, Container, Row} from 'react-bootstrap'
 import { FilterContext } from "./FilterContext";
-import { LocationConfig} from "../config/LocationConfig";
 
 const HeroSelection = (props) => {
 
-    const locationConfig = LocationConfig;
 
     const {
         setSearchContent,
