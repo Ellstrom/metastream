@@ -4,6 +4,7 @@ import {FilterContext} from "./FilterContext";
 import {Checkbox} from "semantic-ui-react";
 import {LocationConfig} from "../config/LocationConfig";
 import {FormControl} from "react-bootstrap";
+import HeroSearch from "./HeroSearch";
 
 const HeroSidebar = (props) => {
 
@@ -55,16 +56,6 @@ const HeroSidebar = (props) => {
     const [isValueFourChecked, setValueFourChecked] = useState(false);
     const [isValueFiveChecked, setValueFiveChecked] = useState(false);
 
-    const addHeroWith = (heroWithName) => {
-        setHeroesWith([...heroesWith, heroWithName]);
-        console.log("Added hero: " + heroWithName);
-    };
-
-    const addHeroVs = (heroVsName) => {
-        setHeroesVs([...heroesVs, heroVsName]);
-        console.log("Added hero: " + heroVsName);
-    };
-
     return (
         <div className="sideBar">
             <div className="searchBar">
@@ -81,38 +72,8 @@ const HeroSidebar = (props) => {
             </div>
             <table>
                 <tbody>
-                <tr className="grid-container-filter-table">
-                    <td><h3>Medusa</h3></td>
-                    <td className="paddingLeft">
-                        <Button onClick={() => addHeroWith('Medusa')}>
-                            Add hero With
-                        </Button>
-                        <Button onClick={() => addHeroVs('Medusa')}>
-                            Add hero Vs
-                        </Button>
-                        <Checkbox
-                            toggle
-                            checked={isSmokeChecked}
-                            onChange={(formEvent, checkBoxProps) => {
-                                setSmokeChecked(checkBoxProps.checked);
-                                setSmokeVisible(checkBoxProps.checked);
-                            }}
-                        />
-                    </td>
-                </tr>
-                <tr className="grid-container-filter-table">
-                    <td><h3>Zeus</h3></td>
-                    <td className="paddingLeft">
-                        <Checkbox
-                            toggle
-                            checked={isFlashChecked}
-                            onChange={(formEvent, checkBoxProps) => {
-                                setFlashChecked(checkBoxProps.checked);
-                                setFlashVisible(checkBoxProps.checked);
-                            }}
-                        />
-                    </td>
-                </tr>
+                    <HeroSearch heroName="Medusa"/>
+                    <HeroSearch heroName="Zeus"/>
                 </tbody>
             </table>
             <table>
