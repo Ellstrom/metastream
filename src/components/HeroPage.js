@@ -7,6 +7,8 @@ const HeroPage = ({matchups}) => {
 
     const [searchContent, setSearchContent] = useState('');
     const [heroName1, removeHero1] = useState('');
+    const [heroesWith, setHeroesWith] = useState([]);
+    const [heroesVs, setHeroesVs] = useState([]);
 
     const [isSmokeVisible, setSmokeVisible] = useState(false);
     const [isFlashVisible, setFlashVisible] = useState(false);
@@ -31,6 +33,10 @@ const HeroPage = ({matchups}) => {
             {
                 searchContent,
                 heroName1,
+                heroesVs,
+                setHeroesVs,
+                heroesWith,
+                setHeroesWith,
                 isSmokeVisible,
                 isFlashVisible,
                 isMolotovVisible,
@@ -74,6 +80,10 @@ const HeroPage = ({matchups}) => {
         [
             searchContent,
             heroName1,
+            heroesVs,
+            setHeroesVs,
+            heroesWith,
+            setHeroesWith,
             isSmokeVisible,
             isFlashVisible,
             isMolotovVisible,
@@ -119,17 +129,17 @@ const HeroPage = ({matchups}) => {
         <div>
             <FilterContext.Provider value={providerValue}>
                 <div className="grid-container-selection-page">
-                    <HeroSelection heroName={heroName1}/>
-                    <HeroSelection heroName="heroWith2"/>
-                    <HeroSelection heroName="heroWith3"/>
-                    <HeroSelection heroName="heroWith4"/>
-                    <HeroSelection heroName="heroWith5"/>
+                    <HeroSelection heroName={heroesWith.at(0)}/>
+                    <HeroSelection heroName={heroesWith.at(1)}/>
+                    <HeroSelection heroName={heroesWith.at(2)}/>
+                    <HeroSelection heroName={heroesWith.at(3)}/>
+                    <HeroSelection heroName={heroesWith.at(4)}/>
 
-                    <HeroSelection heroName="heroVs1"/>
-                    <HeroSelection heroName="heroVs2"/>
-                    <HeroSelection heroName="heroVs3"/>
-                    <HeroSelection heroName="heroVs4"/>
-                    <HeroSelection heroName="heroVs5"/>
+                    <HeroSelection heroName={heroesVs.at(0)}/>
+                    <HeroSelection heroName={heroesVs.at(1)}/>
+                    <HeroSelection heroName={heroesVs.at(2)}/>
+                    <HeroSelection heroName={heroesVs.at(3)}/>
+                    <HeroSelection heroName={heroesVs.at(4)}/>
                 </div>
                 <div className="grid-container-hero-page">
                         <div>

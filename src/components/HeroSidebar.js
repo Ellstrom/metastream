@@ -11,6 +11,10 @@ const HeroSidebar = (props) => {
 
     const {
         setSearchContent,
+        heroesVs,
+        setHeroesVs,
+        heroesWith,
+        setHeroesWith,
         setSmokeVisible,
         setFlashVisible,
         setMolotovVisible,
@@ -51,7 +55,13 @@ const HeroSidebar = (props) => {
     const [isValueFourChecked, setValueFourChecked] = useState(false);
     const [isValueFiveChecked, setValueFiveChecked] = useState(false);
 
+    const addHeroWith = (heroWithName) => {
+        setHeroesWith([...heroesWith, heroWithName]);
+        console.log("Added hero: " + heroWithName);
+    };
+
     const addHeroVs = (heroVsName) => {
+        setHeroesVs([...heroesVs, heroVsName]);
         console.log("Added hero: " + heroVsName);
     };
 
@@ -74,10 +84,12 @@ const HeroSidebar = (props) => {
                 <tr className="grid-container-filter-table">
                     <td><h3>Medusa</h3></td>
                     <td className="paddingLeft">
-                        <Button onClick={() => addHeroVs('Medusa')}>
-                            Add hero
+                        <Button onClick={() => addHeroWith('Medusa')}>
+                            Add hero With
                         </Button>
-
+                        <Button onClick={() => addHeroVs('Medusa')}>
+                            Add hero Vs
+                        </Button>
                         <Checkbox
                             toggle
                             checked={isSmokeChecked}
