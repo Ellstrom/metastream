@@ -5,10 +5,13 @@ import {Checkbox} from "semantic-ui-react";
 import {LocationConfig} from "../config/LocationConfig";
 import {FormControl} from "react-bootstrap";
 import HeroSearch from "./HeroSearch";
+import {HeroConfig} from "../config/HeroConfig";
 
 const HeroSidebar = (props) => {
 
     const locationConfig = LocationConfig;
+    const heroConfig = HeroConfig;
+
 
     const {
         setSearchContent,
@@ -72,8 +75,9 @@ const HeroSidebar = (props) => {
             </div>
             <table>
                 <tbody>
-                    <HeroSearch heroName="Medusa"/>
-                    <HeroSearch heroName="Zeus"/>
+                    {heroConfig.heroes.map(hero => (
+                        <HeroSearch heroName={hero.name}/>
+                    ))}
                 </tbody>
             </table>
             <table>
