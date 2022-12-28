@@ -26,12 +26,18 @@ const HeroSearch = (props) => {
         <tr className="grid-container-filter-table">
             <td><h3>{props.heroName}</h3></td>
             <td className="paddingLeft">
-                <Button onClick={() => addHeroWith(props.heroName)}>
-                    Add hero With
-                </Button>
-                <Button onClick={() => addHeroVs(props.heroName)}>
-                    Add hero Vs
-                </Button>
+                <tr>
+                    <td>
+                        <Button onClick={() => addHeroWith(props.heroName)}>
+                            Add hero With
+                        </Button>
+                    </td>
+                    <td>
+                        <Button onClick={() => addHeroVs(props.heroName)}>
+                            Add hero Vs
+                        </Button>
+                    </td>
+                </tr>
             </td>
         </tr>
     )
