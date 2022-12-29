@@ -40,7 +40,7 @@ const HeroPage = () => {
 
                 let heroIdsVs = heroesVs.map(hero => hero.id).join(',');
                 let vsHeroesUrl = "&vsHeroes=" + heroIdsVs;
-                const url = '/matchups/vs-and-with/heroes?' + withHeroesUrl + vsHeroesUrl + '&minimumAmountOfGamesForMatchup=0';
+                const url = '/matchups/vs-and-with/heroes?' + withHeroesUrl + vsHeroesUrl + '&minimumAmountOfGamesForMatchup=1000';
                 const response = await fetch(url);
 
                 const body = await response.json();
