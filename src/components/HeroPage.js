@@ -8,6 +8,7 @@ const HeroPage = () => {
     const [searchContent, setSearchContent] = useState('');
     const [heroesWith, setHeroesWith] = useState([]);
     const [heroesVs, setHeroesVs] = useState([]);
+    const [heroesIncluded, setHeroesIncluded] = useState([]);
     const [matchups, setMatchups] = useState([]);
 
     const providerValue = useMemo(() => (
@@ -17,6 +18,8 @@ const HeroPage = () => {
                 setHeroesVs,
                 heroesWith,
                 setHeroesWith,
+                heroesIncluded,
+                setHeroesIncluded,
                 setMatchups,
                 setSearchContent,
             }
@@ -27,6 +30,8 @@ const HeroPage = () => {
             setHeroesVs,
             heroesWith,
             setHeroesWith,
+            heroesIncluded,
+            setHeroesIncluded,
             setMatchups,
             setSearchContent,
         ]
@@ -40,7 +45,11 @@ const HeroPage = () => {
 
                 let heroIdsVs = heroesVs.map(hero => hero.id).join(',');
                 let vsHeroesUrl = "&vsHeroes=" + heroIdsVs;
-                const url = '/matchups/vs-and-with/heroes?' + withHeroesUrl + vsHeroesUrl + '&minimumAmountOfGamesForMatchup=1000';
+
+                let heroIdsIncluded = heroesIncluded.map(hero => hero.id).join(',');
+                let includedHeroesUrl = "&heroesToInclude=" + heroIdsIncluded;
+
+                const url = '/matchups/vs-and-with/heroes?' + withHeroesUrl + vsHeroesUrl + includedHeroesUrl + '&minimumAmountOfGamesForMatchup=1000';
                 const response = await fetch(url);
 
                 const body = await response.json();
@@ -115,6 +124,36 @@ const HeroPage = () => {
                     ) : (
                         ""
                     )}/>
+
+                    <HeroSelection heroName={(heroesIncluded.at(0) !== undefined) ? (
+                        heroesIncluded.at(0).name
+                    ) : (
+                        ""
+                    )}/>
+
+                    <HeroSelection heroName={(heroesIncluded.at(1) !== undefined) ? (
+                        heroesIncluded.at(1).name
+                    ) : (
+                        ""
+                    )}/>
+
+                    <HeroSelection heroName={(heroesIncluded.at(2) !== undefined) ? (
+                        heroesIncluded.at(2).name
+                    ) : (
+                        ""
+                    )}/>
+
+                    <HeroSelection heroName={(heroesIncluded.at(3) !== undefined) ? (
+                        heroesIncluded.at(3).name
+                    ) : (
+                        ""
+                    )}/>
+
+                    <HeroSelection heroName={(heroesIncluded.at(4) !== undefined) ? (
+                        heroesIncluded.at(4).name
+                    ) : (
+                        ""
+                    )}/>
                 </div>
                 <div className="grid-container-hero-page">
                         <div>
@@ -124,7 +163,7 @@ const HeroPage = () => {
                             <h2>Hero matchups</h2>
                             {matchups.map(matchup =>
                                 <div key={matchup.heroName}>
-                                    {matchup.heroName} - {matchup.winrateAdvantage} - ({matchup.matchCount})
+                                    {matchup.heroName} : {matchup.winrateAdvantage} - ({matchup.matchCount})
                                 </div>
                             )}
                         </div>

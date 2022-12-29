@@ -8,7 +8,9 @@ const HeroSearch = (props) => {
         heroesWith,
         setHeroesWith,
         heroesVs,
-        setHeroesVs
+        setHeroesVs,
+        heroesIncluded,
+        setHeroesIncluded
     } = useContext(FilterContext);
 
     const addHeroWith = (heroWith) => {
@@ -19,6 +21,10 @@ const HeroSearch = (props) => {
         setHeroesVs([...heroesVs, heroVs]);
     };
 
+    const addHeroIncluded = (heroIncluded) => {
+        setHeroesIncluded([...heroesIncluded, heroIncluded]);
+    };
+
     return (
         <tr className="grid-container-filter-table">
             <td><h3>{props.hero.name}</h3></td>
@@ -27,6 +33,11 @@ const HeroSearch = (props) => {
                     <td>
                         <Button onClick={() => addHeroWith(props.hero)}>
                             Add hero With
+                        </Button>
+                    </td>
+                    <td>
+                        <Button onClick={() => addHeroIncluded(props.hero)}>
+                            Add hero Included
                         </Button>
                     </td>
                     <td>

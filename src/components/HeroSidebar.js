@@ -5,35 +5,14 @@ import {FormControl} from "react-bootstrap";
 import HeroSearch from "./HeroSearch";
 import {HeroConfig} from "../config/HeroConfig";
 
-const HeroSidebar = (props) => {
+const HeroSidebar = () => {
 
     const heroConfig = HeroConfig;
 
-
     const {
         setSearchContent,
-        heroesVs,
-        setHeroesVs,
-        heroesWith,
         setHeroesWith,
-        setSmokeVisible,
-        setFlashVisible,
-        setMolotovVisible,
-        setGrenadeVisible,
-        setCTVisible,
-        setTVisible,
-        setStratVisible,
-        setAVisible,
-        setMidVisible,
-        setBVisible,
-        setYardVisible,
-        setRampVisible,
-        setVentVisible,
-        setValueOneVisible,
-        setValueTwoVisible,
-        setValueThreeVisible,
-        setValueFourVisible,
-        setValueFiveVisible
+        setHeroesVs
     } = useContext(FilterContext);
 
     const [searchContentValue, setSearchContentValue] = useState('');
@@ -51,6 +30,16 @@ const HeroSidebar = (props) => {
                     placeholder="Search Hero"
                     className="mr-sm-2"
                 />
+            </div>
+            <div className="resetButton">
+                <Button
+                    variant="primary"
+                    onClick={() => {
+                        setHeroesWith([]);
+                        setHeroesVs([]);
+                    }}>
+                    Reset With/Vs heroes
+                </Button>
             </div>
             <table>
                 <tbody>
