@@ -157,7 +157,7 @@ const HeroPage = () => {
                 </div>
                 <div className="grid-container-hero-page">
                         <div>
-                            <HeroSidebar mapName="Mirage"/>
+                            <HeroSidebar/>
                         </div>
                         <div>
                             <h2>Hero matchups</h2>
