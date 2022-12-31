@@ -10,12 +10,13 @@ const HeroSidebar = () => {
     const heroConfig = HeroConfig;
 
     const {
+        searchContent,
         setSearchContent,
+        numGamesLimit,
+        setNumGamesLimit,
         setHeroesWith,
         setHeroesVs
     } = useContext(FilterContext);
-
-    const [searchContentValue, setSearchContentValue] = useState('');
 
     return (
         <div className="sideBar">
@@ -23,11 +24,19 @@ const HeroSidebar = () => {
                 <FormControl
                     onChange={(event) => {
                         setSearchContent(event.target.value);
-                        setSearchContentValue(event.target.value);
                     }}
-                    value={searchContentValue}
+                    value={searchContent}
                     type="text"
                     placeholder="Search Hero"
+                    className="mr-sm-2"
+                />
+                <FormControl
+                    onChange={(event) => {
+                        setNumGamesLimit(event.target.value);
+                    }}
+                    value={numGamesLimit}
+                    type="number"
+                    placeholder="Num games limit"
                     className="mr-sm-2"
                 />
             </div>
@@ -44,7 +53,7 @@ const HeroSidebar = () => {
             <table>
                 <tbody>
                     {heroConfig.heroes.map(hero => (
-                        hero.name.toLowerCase().includes(searchContentValue.toLowerCase()) &&
+                        hero.name.toLowerCase().includes(searchContent.toLowerCase()) &&
                             <HeroSearch hero={hero}/>
                     ))}
                 </tbody>
@@ -54,7 +63,6 @@ const HeroSidebar = () => {
                     variant="primary"
                     onClick={() => {
                         setSearchContent('');
-                        setSearchContentValue('')
                     }}>
                     Clear filter
                 </Button>

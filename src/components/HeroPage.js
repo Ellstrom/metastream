@@ -1,11 +1,12 @@
 import React, {useEffect, useMemo, useState} from 'react';
 import HeroSidebar from "./HeroSidebar";
-import { FilterContext } from "./FilterContext";
+import {FilterContext} from "./FilterContext";
 import HeroSelection from "./HeroSelection";
 
 const HeroPage = () => {
 
     const [searchContent, setSearchContent] = useState('');
+    const [numGamesLimit, setNumGamesLimit] = useState(1000);
     const [heroesWith, setHeroesWith] = useState([]);
     const [heroesVs, setHeroesVs] = useState([]);
     const [heroesIncluded, setHeroesIncluded] = useState([]);
@@ -14,6 +15,8 @@ const HeroPage = () => {
     const providerValue = useMemo(() => (
             {
                 searchContent,
+                numGamesLimit,
+                setNumGamesLimit,
                 heroesVs,
                 setHeroesVs,
                 heroesWith,
@@ -26,6 +29,8 @@ const HeroPage = () => {
         ),
         [
             searchContent,
+            numGamesLimit,
+            setNumGamesLimit,
             heroesVs,
             setHeroesVs,
             heroesWith,
@@ -37,7 +42,7 @@ const HeroPage = () => {
         ]
     );
 
-    useEffect( () => {
+    useEffect(() => {
         async function fetchMatchupData() {
             if (heroesWith.length !== 0 || heroesVs.length !== 0) {
                 let heroIdsWith = heroesWith.map(hero => hero.id).join(',');
@@ -52,7 +57,12 @@ const HeroPage = () => {
                     includedHeroesUrl = "&heroesToInclude=" + heroIdsIncluded;
                 }
 
-                const url = '/matchups/vs-and-with/heroes?' + withHeroesUrl + vsHeroesUrl + includedHeroesUrl + '&minimumAmountOfGamesForMatchup=1000';
+                let numGamesLimitUrl = "";
+                if (numGamesLimit > 0) {
+                    numGamesLimitUrl = "&minimumAmountOfGamesForMatchup=" + numGamesLimit;
+                }
+
+                const url = '/matchups/vs-and-with/heroes?' + withHeroesUrl + vsHeroesUrl + includedHeroesUrl + numGamesLimitUrl;
                 const response = await fetch(url);
 
                 const body = await response.json();
@@ -61,8 +71,9 @@ const HeroPage = () => {
                 setMatchups([]);
             }
         }
+
         fetchMatchupData().then(r => console.log("Matchupdata is updated."));
-    }, [heroesWith, heroesVs, heroesIncluded]);
+    }, [heroesWith, heroesVs, heroesIncluded, numGamesLimit]);
 
     return (
         <div>
@@ -159,17 +170,17 @@ const HeroPage = () => {
                     )}/>
                 </div>
                 <div className="grid-container-hero-page">
-                        <div>
-                            <HeroSidebar/>
-                        </div>
-                        <div>
-                            <h2>Hero matchups</h2>
-                            {matchups.map(matchup =>
-                                <div key={matchup.heroName}>
-                                    {matchup.heroName} : {matchup.winrateAdvantage} - ({matchup.matchCount})
-                                </div>
-                            )}
-                        </div>
+                    <div>
+                        <HeroSidebar/>
+                    </div>
+                    <div>
+                        <h2>Hero matchups</h2>
+                        {matchups.map(matchup =>
+                            <div key={matchup.heroName}>
+                                {matchup.heroName} : {matchup.winrateAdvantage} - ({matchup.matchCount})
+                            </div>
+                        )}
+                    </div>
                 </div>
             </FilterContext.Provider>
         </div>
