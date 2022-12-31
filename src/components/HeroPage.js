@@ -46,8 +46,11 @@ const HeroPage = () => {
                 let heroIdsVs = heroesVs.map(hero => hero.id).join(',');
                 let vsHeroesUrl = "&vsHeroes=" + heroIdsVs;
 
-                let heroIdsIncluded = heroesIncluded.map(hero => hero.id).join(',');
-                let includedHeroesUrl = "&heroesToInclude=" + heroIdsIncluded;
+                let includedHeroesUrl = "";
+                if (heroesIncluded.length > 0) {
+                    let heroIdsIncluded = heroesIncluded.map(hero => hero.id).join(',');
+                    includedHeroesUrl = "&heroesToInclude=" + heroIdsIncluded;
+                }
 
                 const url = '/matchups/vs-and-with/heroes?' + withHeroesUrl + vsHeroesUrl + includedHeroesUrl + '&minimumAmountOfGamesForMatchup=1000';
                 const response = await fetch(url);
