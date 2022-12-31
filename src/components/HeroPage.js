@@ -59,97 +59,97 @@ const HeroPage = () => {
             }
         }
         fetchMatchupData().then(r => console.log("Matchupdata is updated."));
-    }, [heroesWith, heroesVs]);
+    }, [heroesWith, heroesVs, heroesIncluded]);
 
     return (
         <div>
             <FilterContext.Provider value={providerValue}>
                 <div className="grid-container-selection-page">
-                    <HeroSelection heroName={(heroesWith.at(0) !== undefined) ? (
+                    <HeroSelection type="heroWith" heroName={(heroesWith.at(0) !== undefined) ? (
                         heroesWith.at(0).name
                     ) : (
                         ""
                     )}/>
 
-                    <HeroSelection heroName={(heroesWith.at(1) !== undefined) ? (
+                    <HeroSelection type="heroWith" heroName={(heroesWith.at(1) !== undefined) ? (
                         heroesWith.at(1).name
                     ) : (
                         ""
                     )}/>
 
-                    <HeroSelection heroName={(heroesWith.at(2) !== undefined) ? (
+                    <HeroSelection type="heroWith" heroName={(heroesWith.at(2) !== undefined) ? (
                         heroesWith.at(2).name
                     ) : (
                         ""
                     )}/>
 
-                    <HeroSelection heroName={(heroesWith.at(3) !== undefined) ? (
+                    <HeroSelection type="heroWith" heroName={(heroesWith.at(3) !== undefined) ? (
                         heroesWith.at(3).name
                     ) : (
                         ""
                     )}/>
 
-                    <HeroSelection heroName={(heroesWith.at(4) !== undefined) ? (
+                    <HeroSelection type="heroWith" heroName={(heroesWith.at(4) !== undefined) ? (
                         heroesWith.at(4).name
                     ) : (
                         ""
                     )}/>
 
-                    <HeroSelection heroName={(heroesVs.at(0) !== undefined) ? (
+                    <HeroSelection type="heroVs" heroName={(heroesVs.at(0) !== undefined) ? (
                         heroesVs.at(0).name
                     ) : (
                         ""
                     )}/>
 
-                    <HeroSelection heroName={(heroesVs.at(1) !== undefined) ? (
+                    <HeroSelection type="heroVs" heroName={(heroesVs.at(1) !== undefined) ? (
                         heroesVs.at(1).name
                     ) : (
                         ""
                     )}/>
 
-                    <HeroSelection heroName={(heroesVs.at(2) !== undefined) ? (
+                    <HeroSelection type="heroVs" heroName={(heroesVs.at(2) !== undefined) ? (
                         heroesVs.at(2).name
                     ) : (
                         ""
                     )}/>
 
-                    <HeroSelection heroName={(heroesVs.at(3) !== undefined) ? (
+                    <HeroSelection type="heroVs" heroName={(heroesVs.at(3) !== undefined) ? (
                         heroesVs.at(3).name
                     ) : (
                         ""
                     )}/>
 
-                    <HeroSelection heroName={(heroesVs.at(4) !== undefined) ? (
+                    <HeroSelection type="heroVs" heroName={(heroesVs.at(4) !== undefined) ? (
                         heroesVs.at(4).name
                     ) : (
                         ""
                     )}/>
 
-                    <HeroSelection heroName={(heroesIncluded.at(0) !== undefined) ? (
+                    <HeroSelection type="heroIncluded" heroName={(heroesIncluded.at(0) !== undefined) ? (
                         heroesIncluded.at(0).name
                     ) : (
                         ""
                     )}/>
 
-                    <HeroSelection heroName={(heroesIncluded.at(1) !== undefined) ? (
+                    <HeroSelection type="heroIncluded" heroName={(heroesIncluded.at(1) !== undefined) ? (
                         heroesIncluded.at(1).name
                     ) : (
                         ""
                     )}/>
 
-                    <HeroSelection heroName={(heroesIncluded.at(2) !== undefined) ? (
+                    <HeroSelection type="heroIncluded" heroName={(heroesIncluded.at(2) !== undefined) ? (
                         heroesIncluded.at(2).name
                     ) : (
                         ""
                     )}/>
 
-                    <HeroSelection heroName={(heroesIncluded.at(3) !== undefined) ? (
+                    <HeroSelection type="heroIncluded" heroName={(heroesIncluded.at(3) !== undefined) ? (
                         heroesIncluded.at(3).name
                     ) : (
                         ""
                     )}/>
 
-                    <HeroSelection heroName={(heroesIncluded.at(4) !== undefined) ? (
+                    <HeroSelection type="heroIncluded" heroName={(heroesIncluded.at(4) !== undefined) ? (
                         heroesIncluded.at(4).name
                     ) : (
                         ""
