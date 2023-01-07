@@ -1,5 +1,5 @@
-import React, {useContext, useState, useEffect} from 'react'
-import {Button, Col, Container, Row} from 'react-bootstrap'
+import React, {useContext} from 'react'
+import {Button} from 'react-bootstrap'
 import { FilterContext } from "./FilterContext";
 
 const HeroSearch = (props) => {
@@ -10,20 +10,32 @@ const HeroSearch = (props) => {
         heroesVs,
         setHeroesVs,
         heroesIncluded,
-        setHeroesIncluded
+        setHeroesIncluded,
+        setSearchContent,
+        inputRef
     } = useContext(FilterContext);
 
     const addHeroWith = (heroWith) => {
         setHeroesWith([...heroesWith, heroWith]);
+        setSearchContent("");
+        redirectFocusToInputField();
     };
 
     const addHeroVs = (heroVs) => {
         setHeroesVs([...heroesVs, heroVs]);
+        setSearchContent("");
+        redirectFocusToInputField();
     };
 
     const addHeroIncluded = (heroIncluded) => {
         setHeroesIncluded([...heroesIncluded, heroIncluded]);
+        setSearchContent("");
+        redirectFocusToInputField();
     };
+
+    function redirectFocusToInputField() {
+        inputRef.current.focus();
+    }
 
     return (
         <tr className="grid-container-filter-table">

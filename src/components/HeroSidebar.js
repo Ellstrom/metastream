@@ -1,4 +1,4 @@
-import React, {useContext, useState} from 'react'
+import React, {useContext} from 'react'
 import {Button} from 'react-bootstrap'
 import {FilterContext} from "./FilterContext";
 import {FormControl} from "react-bootstrap";
@@ -15,13 +15,14 @@ const HeroSidebar = () => {
         numGamesLimit,
         setNumGamesLimit,
         setHeroesWith,
-        setHeroesVs
+        setHeroesVs,
+        inputRef
     } = useContext(FilterContext);
 
     return (
         <div className="sideBar">
             <div className="searchBar">
-                <FormControl
+                <FormControl ref={inputRef}
                     onChange={(event) => {
                         setSearchContent(event.target.value);
                     }}

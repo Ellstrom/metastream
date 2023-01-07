@@ -2,7 +2,7 @@ import React, {useContext} from 'react'
 import {Col, Container, Row} from 'react-bootstrap'
 import {FilterContext} from "./FilterContext";
 
-const HeroSelection = (props) => {
+const SelectedHero = (props) => {
 
     const {
         heroesWith,
@@ -39,4 +39,4 @@ const HeroSelection = (props) => {
     )
 }
 
-export default HeroSelection
+export default SelectedHero

@@ -1,7 +1,7 @@
-import React, {useEffect, useMemo, useState} from 'react';
+import React, {useEffect, useMemo, useRef, useState} from 'react';
 import HeroSidebar from "./HeroSidebar";
 import {FilterContext} from "./FilterContext";
-import HeroSelection from "./HeroSelection";
+import SelectedHero from "./SelectedHero";
 
 const HeroPage = () => {
 
@@ -11,6 +11,7 @@ const HeroPage = () => {
     const [heroesVs, setHeroesVs] = useState([]);
     const [heroesIncluded, setHeroesIncluded] = useState([]);
     const [matchups, setMatchups] = useState([]);
+    const inputRef = useRef(null);
 
     const providerValue = useMemo(() => (
             {
@@ -25,6 +26,7 @@ const HeroPage = () => {
                 setHeroesIncluded,
                 setMatchups,
                 setSearchContent,
+                inputRef,
             }
         ),
         [
@@ -39,6 +41,7 @@ const HeroPage = () => {
             setHeroesIncluded,
             setMatchups,
             setSearchContent,
+            inputRef
         ]
     );
 
@@ -79,91 +82,91 @@ const HeroPage = () => {
         <div>
             <FilterContext.Provider value={providerValue}>
                 <div className="grid-container-selection-page">
-                    <HeroSelection type="heroWith" heroName={(heroesWith.at(0) !== undefined) ? (
+                    <SelectedHero type="heroWith" heroName={(heroesWith.at(0) !== undefined) ? (
                         heroesWith.at(0).name
                     ) : (
                         ""
                     )}/>
 
-                    <HeroSelection type="heroWith" heroName={(heroesWith.at(1) !== undefined) ? (
+                    <SelectedHero type="heroWith" heroName={(heroesWith.at(1) !== undefined) ? (
                         heroesWith.at(1).name
                     ) : (
                         ""
                     )}/>
 
-                    <HeroSelection type="heroWith" heroName={(heroesWith.at(2) !== undefined) ? (
+                    <SelectedHero type="heroWith" heroName={(heroesWith.at(2) !== undefined) ? (
                         heroesWith.at(2).name
                     ) : (
                         ""
                     )}/>
 
-                    <HeroSelection type="heroWith" heroName={(heroesWith.at(3) !== undefined) ? (
+                    <SelectedHero type="heroWith" heroName={(heroesWith.at(3) !== undefined) ? (
                         heroesWith.at(3).name
                     ) : (
                         ""
                     )}/>
 
-                    <HeroSelection type="heroWith" heroName={(heroesWith.at(4) !== undefined) ? (
+                    <SelectedHero type="heroWith" heroName={(heroesWith.at(4) !== undefined) ? (
                         heroesWith.at(4).name
                     ) : (
                         ""
                     )}/>
 
-                    <HeroSelection type="heroVs" heroName={(heroesVs.at(0) !== undefined) ? (
+                    <SelectedHero type="heroVs" heroName={(heroesVs.at(0) !== undefined) ? (
                         heroesVs.at(0).name
                     ) : (
                         ""
                     )}/>
 
-                    <HeroSelection type="heroVs" heroName={(heroesVs.at(1) !== undefined) ? (
+                    <SelectedHero type="heroVs" heroName={(heroesVs.at(1) !== undefined) ? (
                         heroesVs.at(1).name
                     ) : (
                         ""
                     )}/>
 
-                    <HeroSelection type="heroVs" heroName={(heroesVs.at(2) !== undefined) ? (
+                    <SelectedHero type="heroVs" heroName={(heroesVs.at(2) !== undefined) ? (
                         heroesVs.at(2).name
                     ) : (
                         ""
                     )}/>
 
-                    <HeroSelection type="heroVs" heroName={(heroesVs.at(3) !== undefined) ? (
+                    <SelectedHero type="heroVs" heroName={(heroesVs.at(3) !== undefined) ? (
                         heroesVs.at(3).name
                     ) : (
                         ""
                     )}/>
 
-                    <HeroSelection type="heroVs" heroName={(heroesVs.at(4) !== undefined) ? (
+                    <SelectedHero type="heroVs" heroName={(heroesVs.at(4) !== undefined) ? (
                         heroesVs.at(4).name
                     ) : (
                         ""
                     )}/>
 
-                    <HeroSelection type="heroIncluded" heroName={(heroesIncluded.at(0) !== undefined) ? (
+                    <SelectedHero type="heroIncluded" heroName={(heroesIncluded.at(0) !== undefined) ? (
                         heroesIncluded.at(0).name
                     ) : (
                         ""
                     )}/>
 
-                    <HeroSelection type="heroIncluded" heroName={(heroesIncluded.at(1) !== undefined) ? (
+                    <SelectedHero type="heroIncluded" heroName={(heroesIncluded.at(1) !== undefined) ? (
                         heroesIncluded.at(1).name
                     ) : (
                         ""
                     )}/>
 
-                    <HeroSelection type="heroIncluded" heroName={(heroesIncluded.at(2) !== undefined) ? (
+                    <SelectedHero type="heroIncluded" heroName={(heroesIncluded.at(2) !== undefined) ? (
                         heroesIncluded.at(2).name
                     ) : (
                         ""
                     )}/>
 
-                    <HeroSelection type="heroIncluded" heroName={(heroesIncluded.at(3) !== undefined) ? (
+                    <SelectedHero type="heroIncluded" heroName={(heroesIncluded.at(3) !== undefined) ? (
                         heroesIncluded.at(3).name
                     ) : (
                         ""
                     )}/>
 
-                    <HeroSelection type="heroIncluded" heroName={(heroesIncluded.at(4) !== undefined) ? (
+                    <SelectedHero type="heroIncluded" heroName={(heroesIncluded.at(4) !== undefined) ? (
                         heroesIncluded.at(4).name
                     ) : (
                         ""
